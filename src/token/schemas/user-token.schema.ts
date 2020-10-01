@@ -6,4 +6,4 @@ export const TokenSchema = new mongoose.Schema({
   expireAt: { type: Date, required: true },
 });
 
-TokenSchema.index({ token: 1, uId: 1 }, { unique: true });
+TokenSchema.index({ token: 1, userId: 1 }, { unique: true });
