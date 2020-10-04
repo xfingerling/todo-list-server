@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
+import { SendGridModule } from '@ntegral/nestjs-sendgrid';
 
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
@@ -17,6 +18,10 @@ import { MailModule } from './mail/mail.module';
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
+    }),
+
+    SendGridModule.forRoot({
+      apiKey: process.env.SENDGRID_API_KEY,
     }),
 
     TokenModule,

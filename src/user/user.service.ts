@@ -29,4 +29,12 @@ export class UserService {
   async find(id: string): Promise<IUser> {
     return this.userModel.findById(id).exec();
   }
+
+  async findByEmail(email: string): Promise<IUser> {
+    return await this.userModel.findOne({ email }).exec();
+  }
+
+  async update(_id: string, payload: Partial<IUser>) {
+    return await this.userModel.updateOne({ _id }, payload);
+  }
 }
